@@ -1,11 +1,11 @@
 'use strict';
 
+    var mapping = {'Amr':'4','Kyra':'2','misan':'3','Asseel':'1'}
 function onClickSnap(){
   $('#snapButton').click(function(){
     snap();
   });
 }
-
 function snap () {
   var canvas = document.getElementById('canvas');
   var context = canvas.getContext('2d');
@@ -57,9 +57,9 @@ function snap () {
         uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
           console.log('File available at', downloadURL);
           $.get('/sendImage/?IURL='+downloadURL).then(function(resp){
-            console.log(resp)
-            if(resp.score>=0.85){
-              $.get('https://projectpurple.lib.id/facechain@dev/lookupUser/?UUID='+1, function( data ) {
+            console.log(resp[0])
+            if(resp[0].score>=0.85){
+              $.get('https://projectpurple.lib.id/facechain@dev/lookupUser/?UUID='+mapping[resp[0].class], function( data ) {
                   console.log(data)
                   window.location.replace("http://localhost:8003/dashboard");
                 });

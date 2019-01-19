@@ -1,0 +1,126 @@
+body,html{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: MainFont;
+}
+
+@font-face{
+  font-family: MainFont;
+  src: url("../fonts/flight.otf");
+}
+
+.topbar{
+  margin-top: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid black;
+}
+.barname{
+  padding-left: 35px;
+  font-size: 60px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: left;
+  letter-spacing: 7px;
+}
+
+.background{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background-image: url("../images/triangle.png");
+  background-repeat: repeat;
+  background-size: auto;
+}
+
+.information{
+  display: flex;
+}
+
+.profile{
+  height: 100%;
+  width: 40%;
+  margin-left: 5%;
+}
+
+.profilestyle{
+  top: 10%;
+  align-items: center;
+}
+
+.profilestyle img{
+  width: 290px;
+  border-top: 5px solid black;
+  border-left: 5px solid black;
+  border-right: 5px solid black;
+  border-radius: 5px 5px 0px 0px;
+  margin-top: 10%;
+}
+
+.profiletext{
+  width: 290px;
+  padding: 10px;
+  border: 5px solid black;
+  border-radius: 0px 0px 5px 5px;
+  background: white;
+  text-align: center;
+}
+
+.profilestyle h2{
+  font-family: MainFont;
+  letter-spacing: 5px;
+  font-size: 30px;
+  color: black;
+}
+
+.profilestyle p{
+  font-family: MainFont;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: black;
+}
+
+.request{
+  width: 290px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.buttreq{
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: MainFont;
+  letter-spacing: 2px;
+}
+
+.car{
+  height: 100%;
+  width: 60%;
+  margin-right: 10%;
+  right: 0;
+  left: 50%
+  text-align: center;
+}
+
+.cardetails{
+  margin-top: 7%;
+  letter-spacing: 2px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 20px;
+  background: white;
+}
+
+.carlock{
+  text-align: center;
+}
