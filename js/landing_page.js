@@ -21,7 +21,10 @@ function snap () {
     storageBucket: "projectpurp-8e2e3.appspot.com",
     messagingSenderId: "214044117452"
   };
-  firebase.initializeApp(config);
+
+  if(!firebase.apps.length) {
+    firebase.initializeApp(config);
+  }
     // Get a reference to the storage service, which is used to create references in your storage bucket
     var storage = firebase.storage();
 
@@ -55,9 +58,10 @@ function snap () {
           console.log('File available at', downloadURL);
           $.get('/sendImage/?IURL='+downloadURL).then(function(resp){
             console.log(resp)
-            if(resp.score>=0.9){
-              $.get('https://projectpurple.lib.id/facechain@dev/lookupUser/?UUID='+resp.class, function( data ) {
+            if(resp.score>=0.85){
+              $.get('https://projectpurple.lib.id/facechain@dev/lookupUser/?UUID='+1, function( data ) {
                   console.log(data)
+                  window.location.replace("http://localhost:8003/dashboard");
                 });
             }else{
               // window.location.replace("http://localhost:8003/");
