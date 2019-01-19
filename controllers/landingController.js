@@ -18,7 +18,7 @@ app.get('/sendImage', function(req, res) {
 	//var image = req.query.image;
 	var images_file= fs.createReadStream("./uploads/download");
 	var classifier_ids = ["DefaultCustomModel_1737231065"];
-	var threshold = 0.6;
+	var threshold = 0.8;
 
 	var params = {
 		images_file: images_file,

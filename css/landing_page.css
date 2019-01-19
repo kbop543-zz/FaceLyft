@@ -1,116 +1,69 @@
-.background{
-   width: 100%;
-   height: 100%;
-
+body,html{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: MainFont;
 }
 
-.logo{
-  width: 156px;
-  height: 120px;
-  margin:auto;
+@font-face{
+  font-family: MainFont;
+  src: url("../fonts/flight.otf");
 }
 
-.layer {
-    background-color: rgba(242, 57, 91, 0.9);;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity:.7;
+@font-face{
+  font-family: SecondaryFont;
+  src: url("../fonts/biko.otf");
 }
 
-.overlay{
-  margin:0 auto;
-  width:600px;
-  height:600px;
-  position:relative;
-  background: #FFFF;
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 4px;
+.section-top{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background-image: url("../images/car.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.8;
+  animation: fade-in-out 10s infinite;
 }
 
-.verify_button{
-  background: #2D1172;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 3px;
-  margin-top: 58px;
-  margin-left: 250px;
-  padding-top: 58p;
-  height: 42px;
-  color: #ffff;
-  width: 119px;
-  font-size: 16px;
+@keyframes fade-in-out{
+  0% {
+    background-image: url("../images/car.jpg");
+  }
+  33% {
+    background-image: url("../images/driving.jpg");
+  }
+  67% {
+    background-image: url("../images/landscape.jpg");
+  }
 }
 
-.verify_text{
-  font-family: SF UI Text;
-line-height: normal;
-font-size: 18px;
-letter-spacing: -0.078px;
-color: #2D1172;
-}
-
-#brandForm{
-  padding-top:100px;
-  padding-left:120px;
-  color:#2D1172;
-}
-
-#brandConfirmationForm{
-  padding-left:120px;
-  color:#2D1172;
-
-}
-
-.success-checkmark{
-  background-image: url("../images/success.png");
-  margin:auto;
-  width: 117px;
-  height: 117px;
-}
-
-.success-name{
-  font-size: 30px;
-  padding-left:250px;
-}
-
-.success-container{
-  padding-top:100px;
-}
-
-.logo-container{
-  padding-top:100px;
-}
-.form-control{
-  background: transparent;
-   border: none;
-   border-bottom: 1px solid #2D1172;
-   width: 363px;
-   font-size: 20px;
-    padding-top: 40px;
-}
-
-.success_text{
-  font-size: 16px;
-}
-
-.okbutton{
+.content{
   position: absolute;
-  background: #2D1172;
-  border-radius: 7px;
-  margin-top: 18px;
-  margin-left: 20px;
-  margin-right: 0px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  color: #ffff;
-  width: 291px;
-  font-size: 16px;
+  display: grid;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+  text-align: center;
 }
 
-.successimage{
-  width: 50%;
-  height:50%;
-  color: blue;
+.content h1{
+  color: black;
+  font-size: 80px;
+  letter-spacing: 18px;
+}
+
+.content button{
+  font-family: SecondaryFont;
+  background: #0984e3;
+  padding: 10px 24px;
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  letter-spacing: 2px;
+  border-radius: 20px;
+  text-transform: lowercase;
 }
