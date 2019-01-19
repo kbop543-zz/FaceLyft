@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var fs = require('fs');
+var firebase= require('firebase');
 
 var VisualRecognitionV3 = require('watson-developer-cloud/visual-recognition/v3');
 
@@ -15,13 +16,15 @@ app.get('/', function(req, res) {
 });
 
 app.get('/sendImage', function(req, res) {
+	// console.log('url=' +req.query.IURL+'&token='+req.query.token)
+	var imgurl=req.query.IURL+'&token='+req.query.token;
 	//var image = req.query.image;
-	var images_file= fs.createReadStream("./uploads/download");
+	// var images_file= fs.createReadStream("./uploads/download");
 	var classifier_ids = ["DefaultCustomModel_1737231065"];
 	var threshold = 0.8;
 
 	var params = {
-		images_file: images_file,
+		url: imgurl,
 		classifier_ids: classifier_ids,
 		threshold: threshold
 	};
@@ -29,13 +32,12 @@ app.get('/sendImage', function(req, res) {
 	visualRecognition.classify(params, function(err, response) {
 		if (err) {
 			console.log(err);
-			console.log("picture no match");
+			console.log("Unsuccessful call.");
 			res.send({success:false });
 		} else {
-			console.log("picture match");
-			res.send({success:true })
-			// res.send(JSON.stringify(response, null, 2));
-
+			// console.log(JSON.stringify(response, null, 2))
+			console.log("Successful call.");
+			res.send(response.images[0].classifiers[0].classes)
 		}
 	});
   console.log("verify");
