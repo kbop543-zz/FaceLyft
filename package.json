@@ -8,7 +8,9 @@
     "express": "^4.16.4",
     "firebase": "^5.8.0",
     "firebaseui": "^3.5.2",
-    "npm": "^6.6.0"
+    "node-webcam": "^0.4.6",
+    "npm": "^6.6.0",
+    "watson-developer-cloud": "^3.16.0"
   },
   "devDependencies": {},
   "scripts": {
