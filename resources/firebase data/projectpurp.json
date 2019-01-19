@@ -1,44 +1,38 @@
 {
-  "users" : {
-    "1" : {
-      "email" : "a.sidique@hotmail.com",
-      "name" : "Asseel",
-      "phonenumber" : 6475261786,
-      "recents" : {
-        "uuid" : "name"
-      }
-    },
-    "2" : {
-      "email" : "kstephen852@hotmail.com",
-      "name" : "Kyra",
-      "phonenumber" : 6479787234,
-      "recents" : {
-        "uuid" : "name"
-      }
-    },
-    "3" : {
-      "email" : "iweretemisan@gmail.com",
-      "name" : "Temisan",
-      "phonenumber" : 6476097469,
-      "recents" : {
-        "uuid" : "name"
-      }
-    },
-    "4" : {
-      "email" : "amrmahmoud.am@hotmail.com",
-      "name" : "Amr",
-      "phonenumber" : 4167071558,
-      "recents" : {
-        "uuid" : "name"
-      }
-    },
-    "5" : {
-      "email" : "tranlt3@mcmaster.ca",
-      "name" : "Amr",
-      "phonenumber" : 4168936219,
-      "recents" : {
-        "uuid" : "name"
-      }
-    }
-  }
+  "users" : [ null, {
+    "email" : "a.sidique@hotmail.com",
+    "id" : "CATNCf5NsGuJ",
+    "contactHash": "226eff2cd077f4ed2f8c61908ab8d928",
+    "name" : "Asseel",
+    "phonenumber" : 6475261786,
+    "pictureURL" : "https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-9/37354273_890808651110449_1218093445730533376_o.jpg?_nc_cat=102&_nc_ht=scontent-yyz1-1.xx&oh=1e139d8d54f50bbbbb6769227df8e3f8&oe=5CC05364"
+  }, {
+    "email" : "kstephen852@hotmail.com",
+    "id" : "CA3TdybF24qZ",
+    "contactHash": "cd2e9fbeceac7c0025f4868056f71af7",
+    "name" : "Kyra",
+    "phonenumber" : 6479787234,
+    "pictureURL" : "https://scontent-yyz1-1.xx.fbcdn.net/v/t31.0-8/20449293_10155154152043800_7929535656600290980_o.jpg?_nc_cat=111&_nc_ht=scontent-yyz1-1.xx&oh=664fa29e6b8181325ea7d61c7711b44c&oe=5CC6F29E"
+  }, {
+    "email" : "iweretemisan@gmail.com",
+    "id" : "CAc5uVFZwBEF",
+    "contactHash": "1b7c8d94f2375b8e92a182583f9d9a4d",
+    "name" : "Temisan",
+    "phonenumber" : 6476097469,
+    "pictureURL" : "https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-9/28951622_10211148026551795_9123694270209914511_n.jpg?_nc_cat=103&_nc_ht=scontent-yyz1-1.xx&oh=6c83cb7b7921e643400f8c91e8aa8524&oe=5CB5AB79"
+  }, {
+    "email" : "amrmahmoud.am@hotmail.com",
+    "id" : "CACZTP8HeTyX",
+    "contactHash": "69720f3d642c1bd2eb0971671ad5cc75",
+    "name" : "Amr",
+    "phonenumber" : 4167071558,
+    "pictureURL" : "https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-9/28951622_10211148026551795_9123694270209914511_n.jpg?_nc_cat=103&_nc_ht=scontent-yyz1-1.xx&oh=6c83cb7b7921e643400f8c91e8aa8524&oe=5CB5AB79"
+  }, {
+    "email" : "tranlt3@mcmaster.ca",
+    "id" : "CAQkAA7hfHTm",
+    "contactHash": "d7f781c5ea092dbe0c85ee517bc0399e",
+    "name" : "Lisa",
+    "phonenumber" : 4168936219,
+    "pictureURL" : "https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-9/37397735_10217120504704735_569627553824768000_o.jpg?_nc_cat=106&_nc_ht=scontent-yyz1-1.xx&oh=226f2b981dfeccaccdedb0f2589e67bd&oe=5CB30342"
+  } ]
 }
