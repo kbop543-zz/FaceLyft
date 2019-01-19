@@ -1,0 +1,17 @@
+{
+  "name": "projectpurp",
+  "version": "1.0.0",
+  "description": "uofthacks",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "firebase": "^5.8.0",
+    "firebaseui": "^3.5.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
