@@ -30,10 +30,11 @@ app.get('/sendImage', function(req, res) {
 		if (err) {
 			console.log(err);
 			console.log("picture no match");
-			res.send("hi");
+			res.send({success:false });
 		} else {
 			console.log("picture match");
-			res.send(JSON.stringify(response, null, 2));
+			res.send({success:true })
+			// res.send(JSON.stringify(response, null, 2));
 
 		}
 	});

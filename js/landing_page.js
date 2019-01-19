@@ -22,13 +22,12 @@ function snap () {
   //var dataUrl = canvas.toDataURL();
 
   //console.log(dataUrl);
-  $.get('/sendImage',function(verifiedBool){
-    if(verifiedBool != "hi"){
-      $.get('/dashboard');
+  $.get('/sendImage').then(function(resp){
+    if(resp.success){
+      window.location.replace("http://localhost:8003/dashboard");
     }else{
-      $.get('/carLocked');
+      // window.location.replace("http://localhost:8003/");
     }
-
   });
 }
 
