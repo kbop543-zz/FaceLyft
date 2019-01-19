@@ -4,9 +4,11 @@
   "description": "uofthacks",
   "main": "app.js",
   "dependencies": {
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
     "firebase": "^5.8.0",
-    "firebaseui": "^3.5.2"
+    "firebaseui": "^3.5.2",
+    "npm": "^6.6.0"
   },
   "devDependencies": {},
   "scripts": {

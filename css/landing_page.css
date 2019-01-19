@@ -1,0 +1,118 @@
+.background{
+  background-image: url("../images/background.png");
+   width: 100%;
+   height: 100%;
+
+}
+
+.logo{
+  background-image: url("../images/logo_v2.png");
+  width: 156px;
+  height: 120px;
+  margin:auto;
+}
+
+.layer {
+    background-color: rgba(242, 57, 91, 0.9);;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity:.7;
+}
+
+.overlay{
+  margin:0 auto;
+  width:600px;
+  height:600px;
+  position:relative;
+  background: #FFFF;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 4px;
+}
+
+.verify_button{
+  background: #2D1172;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  margin-top: 58px;
+  margin-left: 250px;
+  padding-top: 58p;
+  height: 42px;
+  color: #ffff;
+  width: 119px;
+  font-size: 16px;
+}
+
+.verify_text{
+  font-family: SF UI Text;
+line-height: normal;
+font-size: 18px;
+letter-spacing: -0.078px;
+color: #2D1172;
+}
+
+#brandForm{
+  padding-top:100px;
+  padding-left:120px;
+  color:#2D1172;
+}
+
+#brandConfirmationForm{
+  padding-left:120px;
+  color:#2D1172;
+
+}
+
+.success-checkmark{
+  background-image: url("../images/success.png");
+  margin:auto;
+  width: 117px;
+  height: 117px;
+}
+
+.success-name{
+  font-size: 30px;
+  padding-left:250px;
+}
+
+.success-container{
+  padding-top:100px;
+}
+
+.logo-container{
+  padding-top:100px;
+}
+.form-control{
+  background: transparent;
+   border: none;
+   border-bottom: 1px solid #2D1172;
+   width: 363px;
+   font-size: 20px;
+    padding-top: 40px;
+}
+
+.success_text{
+  font-size: 16px;
+}
+
+.okbutton{
+  position: absolute;
+  background: #2D1172;
+  border-radius: 7px;
+  margin-top: 18px;
+  margin-left: 20px;
+  margin-right: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #ffff;
+  width: 291px;
+  font-size: 16px;
+}
+
+.successimage{
+  width: 50%;
+  height:50%;
+  color: blue;
+}
