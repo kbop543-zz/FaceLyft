@@ -8,7 +8,7 @@ function onClickSnap(){
 }
 function lock(){
   $.get('./dashboard/lock').then(function(resp){
-    console.log(resp)
+    console.log(resp);
   });
 }
 function unlock(){
@@ -176,6 +176,7 @@ function onlock(){
 function onunlock(){
   $('#unlock').click(function(){
     unlock();
+
   });
 }
 /* Set up the page */

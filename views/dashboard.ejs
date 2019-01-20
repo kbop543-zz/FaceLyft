@@ -32,8 +32,8 @@
 <body>
   <div id="overlay">
     <div class="container col-lg-12 text-center">
-      <canvas id="canvas" class="mt-5"></canvas>
-      <video id="video" class="mt-5"></video>
+      <canvas id="canvas" class="mt-5 col-lg-5"></canvas>
+      <video id="video" class="mt-5 col-lg-5"></video>
       <div class="col-lg-12">
         <h1 class="display-3 feeTitle">Fee to Charge</h1>
         <input type="number" id="feeInput" class="w-50 text-center feeInput"></input>
@@ -75,7 +75,12 @@
     <div class="car">
       <div class="cardetails">
         <h2>Car Details</h2>
-        <p>Insert Information Here.</p>
+        <%if (typeof carData!=='undefined') { %>
+        <p id="carName"><%= carData.info.year %> <%= carData.info.make %> <%= carData.info.model %> </p>
+        <p id="odoName">Current KM's:  <%=carData.odometer.data.distance %> KM</p>
+        <p id="vinName">VIN Number: <%=carData.VIN %> </p>
+        <%}  %>
+        <img class="carImage" src="https://i.ytimg.com/vi/NwN_uIWpNOQ/maxresdefault.jpg"></src>
       </div>
       <div class="carlock">
         <button id = 'lock'class="btn"><img src="../images/lock.png" width =65 height=65></button>

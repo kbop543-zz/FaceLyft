@@ -36,6 +36,7 @@ var fullData={}
       .then((resp) => {
         var smartCarInfo = resp.data;
         fullData= smartCarInfo;
+        fullData.odometer.data.distance = Math.round(fullData.odometer.data.distance);
         console.log(fullData)
         axios.get('https://projectpurple.lib.id/facechain@dev/lookupUser?UUID='+req.session.uuid)
         .then((resp) => {
