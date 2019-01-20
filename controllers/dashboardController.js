@@ -7,7 +7,7 @@ const axios = require('axios')
 const client = new smartcar.AuthClient({
   clientId: '7ef629c4-9bf6-47c5-b901-984824b0af32',
   clientSecret: 'f7a1c636-b604-4a80-bfe9-3c38def9a527',
-  redirectUri: 'http://localhost:8003/dashboard?UUID=2'
+  redirectUri: 'http://localhost:8003/dashboard'
 });
 
 
@@ -58,7 +58,7 @@ app.get('/', function(req, res) {
 			axios.get('https://projectpurple.lib.id/facechain@dev/smartcarAuth')
 			.then((resp) => {
 
-        console.log(resp.data)
+        // console.log(resp.data)
         res.render('dashboard' ,{'link':resp.data});
 			  // console.log(resp.data)
 				// res.redirect(resp.data);

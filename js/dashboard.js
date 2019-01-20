@@ -1,3 +1,5 @@
+
+
 window.onload = () => {
   var data = String($('#hidden').html())
   if(data.includes('https://')){
