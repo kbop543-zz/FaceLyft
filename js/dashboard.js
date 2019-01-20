@@ -1,6 +1,5 @@
 
 'use strict';
-
     var mapping = {'Amr':'4','kyra':'2','misan':'3','Asseel':'1'}
 function onClickSnap(){
   $('#snapButton').click(function(){

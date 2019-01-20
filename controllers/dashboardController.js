@@ -15,7 +15,7 @@ const client = new smartcar.AuthClient({
 
 app.get('/', function(req, res) {
 	code = req.query.code;
-
+var fullData={}
   if(req.query.UUID){
     req.session.uuid = req.query.UUID;
   }
@@ -35,27 +35,29 @@ app.get('/', function(req, res) {
       axios.get('https://projectpurple.lib.id/facechain@dev/smartcarInfo?access='+req.session.access)
       .then((resp) => {
         var smartCarInfo = resp.data;
-        console.log(smartCarInfo)
+        fullData= smartCarInfo;
+        console.log(fullData)
+        axios.get('https://projectpurple.lib.id/facechain@dev/lookupUser?UUID='+req.session.uuid)
+        .then((resp) => {
+
+          console.log(resp.data)
+          var data = resp.data;
+          // data[smartCarInfo] = smartCarInfo;
+
+          res.render('dashboard' ,{data:resp.data,carData:fullData});
+          // console.log(resp.data)
+          // res.redirect(resp.data);
+        })
+        .catch((error) => {
+          console.error(error)
+        })
       })
       .catch((error) => {
         console.error(error)
       })
     });
 
-    axios.get('https://projectpurple.lib.id/facechain@dev/lookupUser?UUID='+req.session.uuid)
-    .then((resp) => {
 
-      console.log(resp.data)
-      var data = resp.data;
-      // data[smartCarInfo] = smartCarInfo;
-
-      res.render('dashboard' ,{data:resp.data});
-      // console.log(resp.data)
-      // res.redirect(resp.data);
-    })
-    .catch((error) => {
-      console.error(error)
-    })
 	}
 		else{
 			axios.get('https://projectpurple.lib.id/facechain@dev/smartcarAuth')
@@ -92,7 +94,7 @@ app.get('/unlock', function(req, res) {
   .then((resp) => {
     var info = resp.data;
     console.log(info)
-  
+
     res.send('success')
   })
   .catch((error) => {

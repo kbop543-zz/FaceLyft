@@ -14,6 +14,20 @@
   <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
 
 </head>
+<style>
+#map {
+  min-width: 200px;
+  width: 100%;
+  min-height: 200px;
+  height: 50%;
+  border: 1px solid black;
+}
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+</style>
 
 <body>
   <div id="overlay">
@@ -31,6 +45,7 @@
     <%if (typeof link!=='undefined') { %>
     <p  id='hidden' style="display:none;"><%=link%></p>
 <%} %>
+
 
   <div class="topbar">
     <img src="../images/logo.png" alt="Logo">
@@ -67,7 +82,11 @@
         <button id='unlock'class="btn"><img src="../images/unlock.png" width =50 height=50></button>
         <h3>Lock or unlock your car</h3>
       </div>
+
+      <div id="map"></div>
     </div>
+
+
 
    </div>
 
@@ -75,5 +94,24 @@
    </div>
 
 </body>
+<script>
+  var map;
+  function initMap() {
+    <%if (typeof carData!=='undefined') { %>
+        var  center= {lat: <%= carData.location.data.latitude%>, lng:<%= carData.location.data.longitude%>}
+<%} %>
+    map = new google.maps.Map(document.getElementById('map'), {
+      center:center,
+      zoom: 17
+    });
+  var marker = new google.maps.Marker({
+    position: center,
+    map: map,
+    title: 'Your car is here!'
+  });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAC4cKtDG7Su8HZ7wVy8GoQglXwJxaSbcY&callback=initMap"
+async defer></script>
 
 </html>
