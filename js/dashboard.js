@@ -8,12 +8,12 @@ function onClickSnap(){
   });
 }
 function lock(){
-  $.get('/lock').then(function(resp){
+  $.get('./dashboard/lock').then(function(resp){
     console.log(resp)
   });
 }
 function unlock(){
-  $.get('/unlock').then(function(resp){
+  $.get('./dashboard/unlock').then(function(resp){
     console.log(resp)
   });
 }
