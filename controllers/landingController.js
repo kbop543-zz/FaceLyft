@@ -3,6 +3,8 @@ var app = express();
 var fs = require('fs');
 var firebase= require('firebase');
 
+const axios = require('axios');
+
 var VisualRecognitionV3 = require('watson-developer-cloud/visual-recognition/v3');
 
 var visualRecognition = new VisualRecognitionV3({
@@ -43,6 +45,16 @@ app.get('/sendImage', function(req, res) {
   console.log("verify");
 });
 
+app.get('/lock', function(req, res) {
+  axios.get('https://projectpurple.lib.id/facechain@dev/smartcarSecure?lock=true&code='+req.session.code)
+  .then((resp) => {
+    var info = resp.data;
+    console.log(info)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
+});
 
 
 module.exports = app;

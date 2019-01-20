@@ -35,10 +35,10 @@ app.get('/', function(req, res) {
     axios.get('https://projectpurple.lib.id/facechain@dev/smartcarInfo?code='+req.session.code)
     .then((resp) => {
       var smartCarInfo = resp.data;
-      console.log(smartCarInfo)
+      // console.log(smartCarInfo)
     })
     .catch((error) => {
-      console.error(error)
+      // console.error(error)
     })
 
     axios.get('https://projectpurple.lib.id/facechain@dev/lookupUser?UUID='+req.session.uuid)
@@ -72,10 +72,11 @@ app.get('/', function(req, res) {
 });
 
 app.get('/lock', function(req, res) {
+  console.log('yo')
   axios.get('https://projectpurple.lib.id/facechain@dev/smartcarSecure?lock=true&code='+req.session.code)
   .then((resp) => {
     var info = resp.data;
-    console.log(info)
+    // console.log(info)
   })
   .catch((error) => {
     console.error(error)

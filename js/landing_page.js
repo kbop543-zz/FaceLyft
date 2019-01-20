@@ -85,7 +85,7 @@ function snap () {
               $('#failed').css('display','visibile');
               return;
             }
-            if(resp[0].score>=0.85){
+            if(resp[0].score>=0.8){
               $('#success').css('display', 'block');
               $('#overlay').css('display', 'none');
               window.location.replace("http://localhost:8003/dashboard?UUID="+mapping[resp[0].class]);
