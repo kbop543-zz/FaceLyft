@@ -10,6 +10,7 @@
     "express-session": "^1.15.6",
     "firebase": "^5.8.0",
     "firebaseui": "^3.5.2",
+    "jquery": "^3.3.1",
     "node-webcam": "^0.4.6",
     "npm": "^6.6.0",
     "smartcar": "^4.2.1",

@@ -1,57 +1,46 @@
 <html>
 <head>
-  <script src="/src/ImportSmartContract.js"></script>
-  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-  <script src="/js/landing_page.js"></script>
+  <script src="../js/dashboardV2.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="../css/dashboardV2.css">
 </head>
 
-<body>
-  <div font-family="MainFont">
-
-  <div class="topbar">
-    <a class="barname">My Apps</a>
+<body class="background">
+  <div class="container col-lg-12">
+    <div class="w-100 pt-5 header">
+      <h1 class="display-3 text-center">FaceLyft</h1>
+    </div>
+    <br/>
+    <div class="container m-auto">
+      <div class="col-lg-6 text-center m-auto">
+        <div class="card m-auto profile" style="width: 18rem;">
+          <img id="profileImage" class="card-img-top"></img>
+          <div class="card-body text-center">
+            <h5 id="profileName" class="card-title">Profile</h5>
+            <p id="profileEmail" class="card-text"></p>
+            <p id="profilePhone" class="card-text"></p>
+          </div>
+      </div>
+    </div>
+    <div class="container d-flex col-lg-12 justify-content-center">
+      <div class="d-flex">
+        <div class="card my-5 mx-2 cardApp1" style="width: 18rem;">
+          <div class="card-body p-5 text-center">
+            <h5 class="card-title">Manage My Car</h5>
+          </div>
+      </div>
+      <div class="d-flex">
+        <div class="card my-5 mx-2 cardApp2" style="width: 18rem;">
+          <div class="card-body p-5 text-center">
+            <h5 class="card-title">Request Money</h5>
+          </div>
+      </div>
+      </div>
+    </div>
   </div>
-
-  <div class="background">
-
-  <div class="information">
-
-    <div class="profile">
-      <div class="profilestyle">
-        <img src="../images/avatar.png" alt="User">
-        <div class="profiletext">
-        <h2>John Doe</h2>
-        <p>Account Details</p>
-        </div>
-
-        <div class="request">
-        <button type="button" class="buttreq">Request Money</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="car">
-      <div class="cardetails">
-        <h2>Car Details</h2>
-        <p>Insert Information Here.</p>
-      </div>
-      <div class="carlock">
-        <button class="btn"><img src="../images/lock.png" width =65 height=65></button>
-        <button class="btn"><img src="../images/unlock.png" width =50 height=50></button>
-        <h3>Lock or unlock your car</h3>
-      </div>
-    </div>
-
-   </div>
-
-   </div>
-   </div>
-
 </body>
 
 </html>
