@@ -24,4 +24,4 @@ app.use('/dashboard', dashboard);
 app.use('/carLocked', carLocked);
 
 //Host the app
-app.listen(8004, () => console.log('Example app listening on port 8004!'));
+app.listen(8003, () => console.log('Example app listening on port 8003!'));
