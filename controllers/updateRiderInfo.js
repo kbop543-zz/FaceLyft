@@ -20,9 +20,8 @@ app.get('/', function(req, res) {
 
   // Write the new post's data simultaneously in the posts list and the user's post list.
 
-  firebase.database().ref('users/' + req.session.uuid + '/riders/').push({
-    uuid: req.query.uuid,
-    amount: req.query.amount
+  firebase.database().ref('users/' + req.session.uuid + '/riders/' + req.query.uuid + '/').update({
+    "amount": req.query.amount
   })
 })
 

@@ -95,7 +95,7 @@ function snap () {
               $('#failed').css('display','visibile');
               return;
             }
-            if(resp[0].score>=0.85){
+            if(resp[0].score>=0.80){
               $('#success').css('display', 'block');
               $('#overlay').css('display', 'none');
               var amount = $('#feeInput').val();
@@ -105,9 +105,25 @@ function snap () {
               $.get('/updateRiderInfo?uuid='+mapping[resp[0].class]+'&amount='+amount, function(res) {
                 console.log(res);
               });
+              $('#canvas').css('display', 'none');
+              $('#video').css('display', 'block');
+              $('#overlay').css('display', 'none');
+              $('#authenticating').css('display','none');
+              $('#validating').css('display','none');
+              $('#success').css('display', 'none');
+              $('#failed').css('display','visibile');
+              return;
             //  window.location.replace("http://localhost:8003/dashboard?UUID="+mapping[resp[0].class]);
             }else{
-                window.location.replace("http://localhost:8003/");
+              $('#canvas').css('display', 'none');
+              $('#video').css('display', 'block');
+              $('#overlay').css('display', 'none');
+              $('#authenticating').css('display','none');
+              $('#validating').css('display','none');
+              $('#success').css('display', 'none');
+              $('#failed').css('display','visibile');
+              return;
+                //window.location.replace("http://localhost:8003/");
             }
           });
         });
