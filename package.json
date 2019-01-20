@@ -4,12 +4,15 @@
   "description": "uofthacks",
   "main": "app.js",
   "dependencies": {
+    "axios": "^0.18.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "express-session": "^1.15.6",
     "firebase": "^5.8.0",
     "firebaseui": "^3.5.2",
     "node-webcam": "^0.4.6",
     "npm": "^6.6.0",
+    "smartcar": "^4.2.1",
     "watson-developer-cloud": "^3.16.0"
   },
   "devDependencies": {},

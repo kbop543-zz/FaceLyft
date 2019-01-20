@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 'use strict';
 
@@ -10,10 +11,18 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname));
 
 
+
 app.use(bodyParser.json());       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
+app.use(session({
+  secret: 'secret',
+  duration: 30 * 60 * 1000,
+  activeDuration: 5 * 60 * 1000,
+  saveUninitialized: true,
+  resave: false
+}))
 
 var landing_page = require('./controllers/landingController');
 var dashboard = require('./controllers/dashboardController');

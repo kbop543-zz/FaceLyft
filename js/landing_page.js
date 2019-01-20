@@ -86,20 +86,9 @@ function snap () {
               return;
             }
             if(resp[0].score>=0.85){
-              $.get('https://projectpurple.lib.id/facechain@dev/lookupUser/?UUID='+mapping[resp[0].class], function( data ) {
-                  //console.log(data)
-                  $('#success').css('display', 'block');
-                  $('#overlay').css('display', 'none');
-                  window.location.replace("http://localhost:8003/dashboardV2");
-                }).fail(function() {
-                  $('#canvas').css('display', 'none');
-                  $('#video').css('display', 'block');
-                  $('#overlay').css('display', 'none');
-                  $('#authenticating').css('display','none');
-                  $('#validating').css('display','none');
-                  $('#success').css('display', 'none');
-                  $('#failed').css('display','visibile');
-                });
+              $('#success').css('display', 'block');
+              $('#overlay').css('display', 'none');
+              window.location.replace("http://localhost:8003/dashboard?UUID="+mapping[resp[0].class]);
             }else{
                 window.location.replace("http://localhost:8003/");
             }
