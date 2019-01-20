@@ -1,6 +1,6 @@
 'use strict';
 
-    var mapping = {'Amr':'4','Kyra':'2','misan':'3','Asseel':'1'}
+    var mapping = {'Amr':'4','kyra':'2','misan':'3','Asseel':'1'}
 function onClickSnap(){
   $('#snapButton').click(function(){
     snap();
@@ -58,13 +58,14 @@ function snap () {
           console.log('File available at', downloadURL);
           $.get('/sendImage/?IURL='+downloadURL).then(function(resp){
             console.log(resp[0])
+            console.log(mapping)
             if(resp[0].score>=0.85){
               $.get('https://projectpurple.lib.id/facechain@dev/lookupUser/?UUID='+mapping[resp[0].class], function( data ) {
                   console.log(data)
-                  window.location.replace("http://localhost:8003/dashboard");
+                  window.location.replace("http://localhost:8004/dashboard");
                 });
             }else{
-              // window.location.replace("http://localhost:8003/");
+              window.location.replace("http://localhost:8004/carLocked");
             }
           });
         });
