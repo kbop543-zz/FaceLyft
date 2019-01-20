@@ -6,6 +6,11 @@ body,html{
   font-family: MainFont;
 }
 
+h1 {
+  font-family: MainFont !important;
+  color: black !important;
+}
+
 @font-face{
   font-family: MainFont;
   src: url("../fonts/flight.otf");
@@ -15,6 +20,42 @@ body,html{
   font-family: SecondaryFont;
   src: url("../fonts/biko.otf");
 }
+
+@font-face {
+  font-family: 'Helvetica 35 Thin';
+  font-style: normal;
+  font-weight: normal;
+  src: local('../fonts/Helvetica 35 Thin'), url('../fonts/HelveticaNeue-Thin.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Helvetica Neue Medium';
+font-style: normal;
+font-weight: normal;
+src: local('../fonts/Helvetica Neue Medium'), url('../fonts/HelveticaNeueMedium.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Helvetica 35 Thin';
+font-style: normal;
+font-weight: normal;
+src: local('../fonts/Helvetica 35 Thin'), url('../fonts/HelveticaNeue-Thin.woff') format('woff');
+}
+
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+
 
 .section-top{
   width: 100%;
@@ -40,8 +81,19 @@ body,html{
   }
 }
 
+#canvas {
+  display: none;
+  margin: auto;
+}
+
+#authenticating, #validating, #success, #failure {
+  margin-top: 4em;
+  display: none;
+}
+
 .content{
   position: absolute;
+  margin-top: 2em;
   display: grid;
   top: 50%;
   left: 50%;
@@ -56,8 +108,7 @@ body,html{
   letter-spacing: 18px;
 }
 
-.content button{
-  font-family: SecondaryFont;
+#snapButton {
   background: #0984e3;
   padding: 10px 24px;
   color: white;
@@ -65,5 +116,14 @@ body,html{
   font-size: 30px;
   letter-spacing: 2px;
   border-radius: 20px;
-  text-transform: lowercase;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-family: 'Helvetica 35 Thin' !important;
+  border-radius: 5px;
+}
+
+#video {
+  border: 1.5em solid rgba(255,255,255,.5);
+  border-radius: 5px;
+  margin: auto;
 }

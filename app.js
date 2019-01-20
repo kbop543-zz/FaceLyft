@@ -18,10 +18,12 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 var landing_page = require('./controllers/landingController');
 var dashboard = require('./controllers/dashboardController');
 var carLocked = require('./controllers/carLockedController');
+var dashboardV2 = require('./controllers/dashboardV2Controller')
 
 app.use('/', landing_page);
 app.use('/dashboard', dashboard);
 app.use('/carLocked', carLocked);
+app.use('/dashboardV2', dashboardV2);
 
 //Host the app
 app.listen(8003, () => console.log('Example app listening on port 8003!'));

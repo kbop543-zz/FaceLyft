@@ -7,6 +7,7 @@ function onClickSnap(){
   });
 }
 function snap () {
+  $('#overlay').css('display', 'block');
   var canvas = document.getElementById('canvas');
   var context = canvas.getContext('2d');
 
@@ -36,35 +37,71 @@ function snap () {
       image.src = blob;
       var uploadTask = storageRef.child('image').put(blob);
       uploadTask.on('state_changed', function(snapshot){
+        $('#video').css('display', 'none');
+        $('#validating').css('display','block');
+        $('#canvas').css('display', 'block');
         // Observe state change events such as progress, pause, and resume
         // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
         var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         console.log('Upload is ' + progress + '% done');
+
         switch (snapshot.state) {
           case firebase.storage.TaskState.PAUSED: // or 'paused'
             console.log('Upload is paused');
+            $('#authenticating').css('display', 'block');
+            $('#video').css('display', 'none');
+            $('#canvas').css('display', 'block');
             break;
           case firebase.storage.TaskState.RUNNING: // or 'running'
             console.log('Upload is running');
+            $('#authenticating').css('display', 'block');
+            $('#video').css('display', 'none');
+            $('#canvas').css('display', 'block');
             break;
         }
       }, function(error) {
         // Handle unsuccessful uploads
-        console.log('Unsuccessful upload.')
+        console.log('Unsuccessful upload.');
+        $('#overlay').css('display', 'none');
+        $('#authenticating').css('display', 'none');
+        $('#validating').css('display','none');
+        $('#success').css('display', 'none');
+        $('#canvas').css('display', 'none');
+        $('#video').css('display', 'block');
       }, function() {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
           console.log('File available at', downloadURL);
           $.get('/sendImage/?IURL='+downloadURL).then(function(resp){
-            console.log(resp[0])
+            console.log(resp)
+            if(resp.length == 0) {
+              $('#canvas').css('display', 'none');
+              $('#video').css('display', 'block');
+              $('#overlay').css('display', 'none');
+              $('#authenticating').css('display','none');
+              $('#validating').css('display','none');
+              $('#success').css('display', 'none');
+              $('#failed').css('display','visibile');
+              return;
+            }
             if(resp[0].score>=0.85){
               $.get('https://projectpurple.lib.id/facechain@dev/lookupUser/?UUID='+mapping[resp[0].class], function( data ) {
-                  console.log(data)
-                  window.location.replace("http://localhost:8003/dashboard");
+                  //console.log(data)
+                  $('#success').css('display', 'block');
+                  $('#overlay').css('display', 'none');
+                  window.location.replace("http://localhost:8003/dashboardV2");
+                }).fail(function() {
+                  $('#canvas').css('display', 'none');
+                  $('#video').css('display', 'block');
+                  $('#overlay').css('display', 'none');
+                  $('#authenticating').css('display','none');
+                  $('#validating').css('display','none');
+                  $('#success').css('display', 'none');
+                  $('#failed').css('display','visibile');
                 });
             }else{
-              // window.location.replace("http://localhost:8003/");
+                window.location.replace("http://localhost:8003/");
             }
           });
         });
