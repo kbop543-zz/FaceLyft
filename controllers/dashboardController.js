@@ -8,7 +8,8 @@ const firebase = require('firebase');
 const client = new smartcar.AuthClient({
   clientId: '7ef629c4-9bf6-47c5-b901-984824b0af32',
   clientSecret: 'f7a1c636-b604-4a80-bfe9-3c38def9a527',
-  redirectUri: 'http://localhost:8003/dashboard'
+  redirectUri: 'http://localhost:8003/dashboard',
+  scope:[ 'read_location','read_odometer','read_vehicle_info','read_vin','control_security', 'control_security:unlock', 'control_security:lock']
 });
 
 
