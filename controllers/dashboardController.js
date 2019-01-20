@@ -74,6 +74,8 @@ app.get('/', function(req, res) {
 
 
 app.get('/lock', function(req, res) {
+
+  	// console.log(req.session.access)
    axios.get('https://projectpurple.lib.id/facechain@dev/smartcarSecure?lock=true&access='+req.session.access)
   .then((resp) => {
     var info = resp.data;
@@ -84,7 +86,7 @@ app.get('/lock', function(req, res) {
   })
 });
 app.get('/unlock', function(req, res) {
-	console.log(req.session.access)
+	// console.log(req.session.access)
   axios.get('https://projectpurple.lib.id/facechain@dev/smartcarSecure?lock=false&access='+req.session.access)
   .then((resp) => {
     var info = resp.data;
