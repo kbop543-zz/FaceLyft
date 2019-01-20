@@ -80,6 +80,7 @@ app.get('/lock', function(req, res) {
   .then((resp) => {
     var info = resp.data;
     console.log(info)
+    res.send('success')
   })
   .catch((error) => {
     console.error(error)
@@ -91,6 +92,8 @@ app.get('/unlock', function(req, res) {
   .then((resp) => {
     var info = resp.data;
     console.log(info)
+  
+    res.send('success')
   })
   .catch((error) => {
     console.error(error)
