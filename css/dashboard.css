@@ -6,25 +6,109 @@ body,html{
   font-family: MainFont;
 }
 
+
 @font-face{
   font-family: MainFont;
   src: url("../fonts/flight.otf");
 }
 
+@font-face{
+  font-family: SecondaryFont;
+  src: url("../fonts/biko.otf");
+}
+
+@font-face {
+  font-family: 'Helvetica 35 Thin';
+  font-style: normal;
+  font-weight: normal;
+  src: local('../fonts/Helvetica 35 Thin'), url('../fonts/HelveticaNeue-Thin.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Helvetica Neue Medium';
+font-style: normal;
+font-weight: normal;
+src: local('../fonts/Helvetica Neue Medium'), url('../fonts/HelveticaNeueMedium.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Helvetica 35 Thin';
+font-style: normal;
+font-weight: normal;
+src: local('../fonts/Helvetica 35 Thin'), url('../fonts/HelveticaNeue-Thin.woff') format('woff');
+}
+
+#canvas {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+
+#snapButton {
+  background: #0984e3;
+  padding: 10px 24px;
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  letter-spacing: 2px;
+  border-radius: 20px;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-family: 'Helvetica 35 Thin' !important;
+  border-radius: 5px;
+}
+
+#video {
+  border: 1.5em solid rgba(255,255,255,.5);
+  border-radius: 5px;
+  margin: auto;
+}
+
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: block; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+
+
+
 .topbar{
   margin-top: 20px;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
   border-bottom: 2px solid black;
 }
+
+.topbar img{
+  height: 6%;
+  text-align: center;
+  margin-bottom: 2%;
+  margin-left: 4%;
+}
+
 .barname{
-  padding-left: 35px;
-  font-size: 60px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
+  padding-left: 1%;
+  font-size: 45px;
+  text-transform: lowercase;
   font-weight: bold;
-  text-decoration: none;
   text-align: left;
-  letter-spacing: 7px;
+  font-family: SecondaryFont;
+  color: #FF1212 !important;
 }
 
 .background{

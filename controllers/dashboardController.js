@@ -2,7 +2,8 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 const smartcar = require('smartcar');
-const axios = require('axios')
+const axios = require('axios');
+const firebase = require('firebase');
 
 const client = new smartcar.AuthClient({
   clientId: '7ef629c4-9bf6-47c5-b901-984824b0af32',
