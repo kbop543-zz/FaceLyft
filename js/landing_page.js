@@ -6,6 +6,13 @@ function onClickSnap(){
     snap();
   });
 }
+
+function onClickNotVerified(){
+  $('#notverified').click(function(){
+    window.location.replace("http://localhost:8003/");
+  });
+}
+
 function snap () {
   $('#overlay').css('display', 'block');
   var canvas = document.getElementById('canvas');
@@ -76,14 +83,10 @@ function snap () {
           $.get('/sendImage/?IURL='+downloadURL).then(function(resp){
             console.log(resp)
             if(resp.length == 0) {
-              $('#canvas').css('display', 'none');
-              $('#video').css('display', 'block');
-              $('#overlay').css('display', 'none');
-              $('#authenticating').css('display','none');
-              $('#validating').css('display','none');
-              $('#success').css('display', 'none');
-              $('#failed').css('display','visibile');
-              return;
+              $('#authenticating').css('display', 'none');
+              $('#validating').css('display', 'none');
+              $('#snapButton').css('display', 'none');
+              $('#notverified').css('display', 'inline');
             }
             if(resp[0].score>=0.85){
               $('#success').css('display', 'block');
@@ -137,5 +140,6 @@ function setUpWebcam(){
 $( document ).ready(function (){
     setUpWebcam();
     onClickSnap();
+    onClickNotVerified();
 
 })

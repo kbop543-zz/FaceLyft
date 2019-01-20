@@ -86,9 +86,20 @@ src: local('../fonts/Helvetica 35 Thin'), url('../fonts/HelveticaNeue-Thin.woff'
   margin: auto;
 }
 
-#authenticating, #validating, #success, #failure {
+#authenticating, #validating, #success, #failure{
   margin-top: 4em;
   display: none;
+}
+
+#notverified{
+  display:none;
+  border:none;
+  cursor: pointer;
+  color:red;
+  font-family: MainFont;
+  margin-top: 10em;
+  background-color: inherit;
+  font-size: 30px;
 }
 
 .content{
