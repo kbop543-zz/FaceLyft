@@ -94,7 +94,10 @@ function snap () {
             if(resp[0].score>=0.85){
               $('#success').css('display', 'block');
               $('#overlay').css('display', 'none');
-              window.location.replace("http://localhost:8003/dashboard?UUID="+mapping[resp[0].class]);
+              $.get('/updateRiderInfo?uuid='+mapping[resp[0].class], function(res) {
+                console.log(res);
+              })
+            //  window.location.replace("http://localhost:8003/dashboard?UUID="+mapping[resp[0].class]);
             }else{
                 window.location.replace("http://localhost:8003/");
             }

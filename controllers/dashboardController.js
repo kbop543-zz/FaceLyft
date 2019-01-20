@@ -13,7 +13,6 @@ const client = new smartcar.AuthClient({
 });
 
 
-
 app.get('/', function(req, res) {
 	code = req.query.code;
 
