@@ -12,6 +12,11 @@ function lock(){
     console.log(resp)
   });
 }
+function unlock(){
+  $.get('/unlock').then(function(resp){
+    console.log(resp)
+  });
+}
 function snap () {
   $('#overlay').css('display', 'block');
   var canvas = document.getElementById('canvas');
@@ -141,8 +146,14 @@ function setUpWebcam(){
 
 
 function onlock(){
+
   $('#lock').click(function(){
     lock();
+  });
+}
+function onunlock(){
+  $('#unlock').click(function(){
+    unlock();
   });
 }
 /* Set up the page */
@@ -150,6 +161,7 @@ $( document ).ready(function (){
     setUpWebcam();
     onClickSnap();
     onlock();
+    onunlock();
 
 })
 

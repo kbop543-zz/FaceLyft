@@ -26,20 +26,22 @@ app.get('/', function(req, res) {
   }
 
 	if(code!=''&&code){
-    client.exchangeCode(code).then(function(_access) {
+      client.exchangeCode(code).then(function(_access) {
       access = _access;
 			access = access.accessToken;
-      console.log(access)
+      req.session.access=access;
+    }).then(function(){
+
+      console.log(req.session);
+      axios.get('https://projectpurple.lib.id/facechain@dev/smartcarInfo?access='+req.session.access)
+      .then((resp) => {
+        var smartCarInfo = resp.data;
+        console.log(smartCarInfo)
+      })
+      .catch((error) => {
+        console.error(error)
+      })
     });
-    console.log(req.session);
-    axios.get('https://projectpurple.lib.id/facechain@dev/smartcarInfo?code='+req.session.code)
-    .then((resp) => {
-      var smartCarInfo = resp.data;
-      // console.log(smartCarInfo)
-    })
-    .catch((error) => {
-      // console.error(error)
-    })
 
     axios.get('https://projectpurple.lib.id/facechain@dev/lookupUser?UUID='+req.session.uuid)
     .then((resp) => {
@@ -71,17 +73,17 @@ app.get('/', function(req, res) {
 		}
 });
 
-app.get('/lock', function(req, res) {
-  console.log('yo')
-  axios.get('https://projectpurple.lib.id/facechain@dev/smartcarSecure?lock=true&code='+req.session.code)
-  .then((resp) => {
-    var info = resp.data;
-    // console.log(info)
-  })
-  .catch((error) => {
-    console.error(error)
-  })
-});
+// app.get('/lock', function(req, res) {
+//   console.log('yo')
+//   axios.get('https://projectpurple.lib.id/facechain@dev/smartcarSecure?lock=true&access='+req.session.access)
+//   .then((resp) => {
+//     var info = resp.data;
+//     // console.log(info)
+//   })
+//   .catch((error) => {
+//     console.error(error)
+//   })
+// });
 // app.get('/unlock', function(req, res) {
 //
 // });
