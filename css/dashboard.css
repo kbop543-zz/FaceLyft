@@ -63,7 +63,7 @@ src: local('../fonts/Helvetica 35 Thin'), url('../fonts/HelveticaNeue-Thin.woff'
   margin: auto;
   display: flex;
   position: absolute;
-  right: 250;
+  right: 500;
   top: 100;
 }
 
@@ -216,7 +216,21 @@ src: local('../fonts/Helvetica 35 Thin'), url('../fonts/HelveticaNeue-Thin.woff'
   padding: 20px;
   background: white;
 }
+.test{
+  font-size: 30px;
+}
+.test-title{
+  font-size: 30px;
+}
 
 .carlock{
   text-align: center;
+}
+
+.refreshButton {
+  right: 100;
+  bottom: 500;
+  position: absolute;
+  height: 2em;
+  width: 5em;
 }

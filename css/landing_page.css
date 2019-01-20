@@ -7,8 +7,15 @@ body,html{
 }
 
 h1 {
-  font-family: MainFont !important;
+  font-family: Rabid !important;
   color: black !important;
+  text-transform: lowercase;
+}
+
+@font-face {
+  font-family: Rabid;
+  src: url("../fonts/RabbidHighwaySignII.otf");
+
 }
 
 @font-face{

@@ -26,10 +26,11 @@ app.get('/sendImage', function(req, res) {
 	var threshold = 0.8;
 
 	var params = {
-		url: imgurl,
+		url:imgurl,
 		classifier_ids: classifier_ids,
 		threshold: threshold
 	};
+
 
 	visualRecognition.classify(params, function(err, response) {
 		if (err) {

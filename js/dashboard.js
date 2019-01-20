@@ -185,8 +185,56 @@ $( document ).ready(function (){
     onClickSnap();
     onlock();
     onunlock();
-
+    loadHistory();
 })
+
+function loadHistory() {
+  console.log("LOAD HISTORY");
+  $.get('./interacHistory/getHistory').then(function(resp){
+    console.log(resp);
+    $('#t1').html(resp.requestedFrom.contactName);
+    $('#t2').html("AMOUNT: $" + resp.amount);
+    var st = resp.status;
+    var lo = "";
+    /*
+    REQUEST_INITIATED(1)
+    AVAILABLE_TO_BE_FULFILLED(2)
+    REQUEST_FULFILLED(3)
+    DECLINED(4)
+    CANCELLED(5)
+    EXPIRED(6)
+    DEPOSIT_FAILED(7)
+    REQUEST_COMPLETED(8)
+    */
+    if(st == 1) {
+      lo = "Request Initialized";
+      $('#t3').css('color', 'black');
+    } else if(st == 2) {
+      $('#t3').css('color', 'gold');
+      lo = "Available to be Fulfilled";
+    } else if(st == 3) {
+      lo = "Request Fulfilled";
+      $('#t3').css('color', 'green');
+    } else if(st == 4) {
+      lo = "Request Declined";
+      $('#t3').css('color', 'red');
+    } else if(st == 5) {
+      lo = "Request Cancelled";
+      $('#t3').css('color', 'red');
+    } else if(st == 6) {
+      lo = "Request Expired";
+      $('#t3').css('color', 'red');
+    } else if(st == 7) {
+      lo = "Deposit Failed";
+      $('#t3').css('color', 'red');
+    } else if(st == 8) {
+      lo = "Request Complete";
+      $('#t3').css('color', 'green');
+    }
+    $('#t3').html("STATUS: " + lo);
+
+  });
+}
 
 window.onload = () => {
   var data = String($('#hidden').html())
@@ -197,6 +245,8 @@ var dom = parser.parseFromString(
     '<!doctype html><body>' + data,
     'text/html');
 var decodedString = dom.body.textContent;
+
+
 
   console.log(unescape(decodedString))
 

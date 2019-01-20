@@ -16,10 +16,10 @@
 </head>
 <style>
 #map {
-  min-width: 200px;
+  min-width: 100px;
   width: 100%;
-  min-height: 200px;
-  height: 50%;
+  min-height: 100px;
+  height: 30%;
   border: 1px solid black;
 }
   html, body {
@@ -91,9 +91,18 @@
       <div id="map"></div>
     </div>
 
-
-
+    <div class="card col-md-2" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Recent Transcation</h5>
+      <h6 id="t1" class="card-subtitle test mb-2 text-muted"></h6>
+      <p id="t2" class="card-text test-title"></p>
+      <p id="t3" class="card-text test-title"></p>
+    </div>
    </div>
+     <button onclick="loadHistory()" class="refreshButton">Refresh</button>
+   </div>
+
+
 
    </div>
    </div>

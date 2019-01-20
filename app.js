@@ -30,6 +30,7 @@ var carLocked = require('./controllers/carLockedController');
 var dashboardV2 = require('./controllers/dashboardV2Controller');
 var updateRiderInfo = require('./controllers/updateRiderInfo');
 var chargeRider = require('./controllers/chargeRider');
+var interacHistory = require('./controllers/interacHistory');
 
 app.use('/', landing_page);
 app.use('/dashboard', dashboard);
@@ -37,5 +38,6 @@ app.use('/carLocked', carLocked);
 app.use('/dashboardV2', dashboardV2);
 app.use('/updateRiderInfo', updateRiderInfo);
 app.use('/chargeRider', chargeRider);
+app.use('/interacHistory', interacHistory);
 //Host the app
 app.listen(8003, () => console.log('Example app listening on port 8003!'));
