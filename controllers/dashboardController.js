@@ -3,6 +3,7 @@ var app = express();
 var fs = require('fs');
 const smartcar = require('smartcar');
 const axios = require('axios');
+const firebase = require('firebase');
 
 const client = new smartcar.AuthClient({
   clientId: '7ef629c4-9bf6-47c5-b901-984824b0af32',
@@ -31,6 +32,14 @@ app.get('/', function(req, res) {
       console.log(access)
     });
     console.log(req.session);
+    axios.get('https://projectpurple.lib.id/facechain@dev/smartcarInfo?code='+req.session.code)
+    .then((resp) => {
+      var smartCarInfo = resp.data;
+      console.log(smartCarInfo)
+    })
+    .catch((error) => {
+      console.error(error)
+    })
 
     axios.get('https://projectpurple.lib.id/facechain@dev/lookupUser?UUID='+req.session.uuid)
     .then((resp) => {
@@ -47,7 +56,19 @@ app.get('/', function(req, res) {
       console.error(error)
     })
 	}
+		else{
+			axios.get('https://projectpurple.lib.id/facechain@dev/smartcarAuth')
+			.then((resp) => {
 
+        // console.log(resp.data)
+        res.render('dashboard' ,{'link':resp.data});
+			  // console.log(resp.data)
+				// res.redirect(resp.data);
+			})
+			.catch((error) => {
+			  console.error(error)
+			})
+		}
 });
 
 // app.get('/lock', function(req, res) {
