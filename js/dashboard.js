@@ -1,7 +1,7 @@
 
 'use strict';
 
-    var mapping = {'Amr':'4','kyra':'2','misan':'3','Asseel':'1'}
+var mapping = {'Amr':'4','kyra':'2','misan':'3','Asseel':'1'}
 function onClickSnap(){
   $('#snapButton').click(function(){
     snap();
@@ -75,7 +75,9 @@ function snap () {
         uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
           console.log('File available at', downloadURL);
           $.get('/sendImage/?IURL='+downloadURL).then(function(resp){
-            console.log(resp)
+            console.log(resp);
+
+
             if(resp.length == 0) {
               $('#canvas').css('display', 'none');
               $('#video').css('display', 'block');
@@ -89,7 +91,13 @@ function snap () {
             if(resp[0].score>=0.85){
               $('#success').css('display', 'block');
               $('#overlay').css('display', 'none');
-              window.location.replace("http://localhost:8003/dashboard?UUID="+mapping[resp[0].class]);
+
+              firebase.database().ref('users/' +  $.cookie("uuid") + '/riders/').set({
+                uuid: mapping[resp[0].class]
+              });
+
+
+              //window.location.replace("http://localhost:8003/dashboard?UUID="+mapping[resp[0].class]);
             }else{
                 window.location.replace("http://localhost:8003/");
             }
@@ -161,4 +169,5 @@ var decodedString = dom.body.textContent;
 function openCameraOverlay() {
   $('#overlay').css('display', 'block')
   $('#canvas').css('display', 'none')
+  $('#video').css('display','block')
 }
