@@ -7,6 +7,11 @@ function onClickSnap(){
     snap();
   });
 }
+function lock(){
+  $.get('/lock').then(function(resp){
+    console.log(resp)
+  });
+}
 function snap () {
   $('#overlay').css('display', 'block');
   var canvas = document.getElementById('canvas');
@@ -134,10 +139,17 @@ function setUpWebcam(){
   }
 }
 
+
+function onlock(){
+  $('#lock').click(function(){
+    lock();
+  });
+}
 /* Set up the page */
 $( document ).ready(function (){
     setUpWebcam();
     onClickSnap();
+    onlock();
 
 })
 
@@ -156,7 +168,6 @@ var decodedString = dom.body.textContent;
      window.location.replace(decodedString);
   }
 }
-
 
 function openCameraOverlay() {
   $('#overlay').css('display', 'block')

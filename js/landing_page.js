@@ -74,7 +74,7 @@ function snap () {
         uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
           console.log('File available at', downloadURL);
           $.get('/sendImage/?IURL='+downloadURL).then(function(resp){
-            console.log(resp)
+            console.log(resp[0])
             if(resp.length == 0) {
               $('#canvas').css('display', 'none');
               $('#video').css('display', 'block');

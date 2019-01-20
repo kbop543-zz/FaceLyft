@@ -71,9 +71,16 @@ app.get('/', function(req, res) {
 		}
 });
 
-// app.get('/lock', function(req, res) {
-//
-// });
+app.get('/lock', function(req, res) {
+  axios.get('https://projectpurple.lib.id/facechain@dev/smartcarSecure?lock=true&code='+req.session.code)
+  .then((resp) => {
+    var info = resp.data;
+    console.log(info)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
+});
 // app.get('/unlock', function(req, res) {
 //
 // });
