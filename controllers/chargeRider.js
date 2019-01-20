@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var firebase = require('firebase');
-
+var axios = require('axios');
 var config = {
   apiKey: "AIzaSyCXj7bwM7Keiz_3JvESgzGcrTTUs5o7wY4",
   authDomain: "projectpurp-8e2e3.firebaseapp.com",
@@ -19,10 +19,12 @@ app.get('/', function(req, res) {
 
 
   // Write the new post's data simultaneously in the posts list and the user's post list.
+  var amount = req.query.amount;
+  var uuid = req.query.uuid;
 
-  firebase.database().ref('users/' + req.session.uuid + '/riders/').push({
-    uuid: req.query.uuid,
-    amount: req.query.amount
+  axios.get('https://projectpurple.lib.id/facechain@dev/interacRequestMoney/?UUID='+uuid+'&AMOUNT='+amount, function(res) {
+    console.log("SENDING MONEY TO: " + uuid);
+    console.log(res);
   })
 })
 

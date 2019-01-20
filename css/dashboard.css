@@ -66,10 +66,21 @@ src: local('../fonts/Helvetica 35 Thin'), url('../fonts/HelveticaNeue-Thin.woff'
   border-radius: 5px;
 }
 
+.feeInput {
+  font-family: SecondaryFont;
+  font-size: 2em;
+  border-radius: 5px;
+}
+
 #video {
   border: 1.5em solid rgba(255,255,255,.5);
   border-radius: 5px;
   margin: auto;
+}
+
+.feeTitle {
+  font-family: SecondaryFont;
+  color: white;
 }
 
 #overlay {

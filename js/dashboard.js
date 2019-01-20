@@ -99,9 +99,13 @@ function snap () {
             if(resp[0].score>=0.85){
               $('#success').css('display', 'block');
               $('#overlay').css('display', 'none');
-              $.get('/updateRiderInfo?uuid='+mapping[resp[0].class], function(res) {
+              var amount = $('#feeInput').val();
+              $.get('/chargeRider?uuid='+mapping[resp[0].class]+'&amount='+amount, function(res) {
                 console.log(res);
-              })
+              });
+              $.get('/updateRiderInfo?uuid='+mapping[resp[0].class]+'&amount='+amount, function(res) {
+                console.log(res);
+              });
             //  window.location.replace("http://localhost:8003/dashboard?UUID="+mapping[resp[0].class]);
             }else{
                 window.location.replace("http://localhost:8003/");
