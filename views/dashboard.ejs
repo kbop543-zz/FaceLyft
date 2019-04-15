@@ -58,6 +58,7 @@
 
     <div class="profile">
       <div class="profilestyle">
+        <% console.log("GETTING DATA**[2123]") %>
         <%if (typeof data!=='undefined') { %>
         <img src="<%= data.pictureURL %>" alt="User">
         <div class="profiletext">
@@ -93,7 +94,7 @@
 
     <div class="card col-md-2" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title">Recent Transcation</h5>
+      <h5 class="card-title">Recent Transaction</h5>
       <h6 id="t1" class="card-subtitle test mb-2 text-muted"></h6>
       <p id="t2" class="card-text test-title"></p>
       <p id="t3" class="card-text test-title"></p>
@@ -111,10 +112,8 @@
 <script>
   var map;
   function initMap() {
-    <%if (typeof carData!=='undefined') { %>
-        var  center= {lat: <%= carData.location.data.latitude%>, lng:<%= carData.location.data.longitude%>}
-<%} %>
-    map = new google.maps.Map(document.getElementById('map'), {
+      var  center= {lat: 43.646551, lng:-79.380344};
+      map = new google.maps.Map(document.getElementById('map'), {
       center:center,
       zoom: 17
     });
@@ -125,7 +124,7 @@
   });
   }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAC4cKtDG7Su8HZ7wVy8GoQglXwJxaSbcY&callback=initMap"
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQhJoMWzuk62y3XGr0PFQaW9rdS54r1u4&callback=initMap"
 async defer></script>
 
 </html>

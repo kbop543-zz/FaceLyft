@@ -1,6 +1,6 @@
 'use strict';
 
-    var mapping = {'Amr':'4','kyra':'2','misan':'3','Asseel':'1'}
+  var mapping = {'Amr':'4','kyra':'2','misan':'3','Asseel':'1'}
 function onClickSnap(){
   $('#snapButton').click(function(){
     snap();
@@ -81,17 +81,18 @@ function snap () {
         uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
           console.log('File available at', downloadURL);
           $.get('/sendImage/?IURL='+downloadURL).then(function(resp){
-            console.log(resp[0])
+            //console.log(resp[0])
             if(resp.length == 0) {
               $('#authenticating').css('display', 'none');
               $('#validating').css('display', 'none');
               $('#snapButton').css('display', 'none');
               $('#notverified').css('display', 'inline');
             }
-            if(resp[0].score>=0.8){
+            if(resp[0].score>=0.8){//threshhold
               $('#success').css('display', 'block');
               $('#overlay').css('display', 'none');
-              window.location.replace("http://localhost:8003/dashboard?UUID="+mapping[resp[0].class]);
+              //Switch from mapping[res[0].class to resp[0].class]
+              window.location.replace("http://localhost:8003/dashboard?UUID="+[resp[0].class]);
             }else{
                 window.location.replace("http://localhost:8003/");
             }

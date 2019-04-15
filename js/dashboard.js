@@ -1,6 +1,6 @@
 
 'use strict';
-    var mapping = {'Amr':'4','kyra':'2','misan':'3','Asseel':'1'}
+var mapping = {'Amr':'4','kyra':'2','misan':'3','Asseel':'1'}
 function onClickSnap(){
   $('#snapButton').click(function(){
     snap();
@@ -99,10 +99,10 @@ function snap () {
               $('#success').css('display', 'block');
               $('#overlay').css('display', 'none');
               var amount = $('#feeInput').val();
-              $.get('/chargeRider?uuid='+mapping[resp[0].class]+'&amount='+amount, function(res) {
+              $.get('/chargeRider?uuid='+resp[0].class+'&amount='+amount, function(res) {
                 console.log(res);
               });
-              $.get('/updateRiderInfo?uuid='+mapping[resp[0].class]+'&amount='+amount, function(res) {
+              $.get('/updateRiderInfo?uuid='+resp[0].class+'&amount='+amount, function(res) {
                 console.log(res);
               });
               $('#canvas').css('display', 'none');
@@ -112,9 +112,9 @@ function snap () {
               $('#validating').css('display','none');
               $('#success').css('display', 'none');
               $('#failed').css('display','visibile');
-              return;
-            //  window.location.replace("http://localhost:8003/dashboard?UUID="+mapping[resp[0].class]);
+              window.location.replace("http://localhost:8003/dashboard?UUID="+resp[0].class);
             }else{
+              console.log(res);
               $('#canvas').css('display', 'none');
               $('#video').css('display', 'block');
               $('#overlay').css('display', 'none');
@@ -191,7 +191,7 @@ $( document ).ready(function (){
 function loadHistory() {
   console.log("LOAD HISTORY");
   $.get('./interacHistory/getHistory').then(function(resp){
-    console.log(resp);
+  //console.log(resp);
     $('#t1').html(resp.requestedFrom.contactName);
     $('#t2').html("AMOUNT: $" + resp.amount);
     var st = resp.status;
@@ -224,10 +224,10 @@ function loadHistory() {
     } else if(st == 6) {
       lo = "Request Expired";
       $('#t3').css('color', 'red');
-    } else if(st == 7) {
+    } else if(st == 9) {
       lo = "Deposit Failed";
       $('#t3').css('color', 'red');
-    } else if(st == 8) {
+    } else if(st == 8 || st == 7) {
       lo = "Request Complete";
       $('#t3').css('color', 'green');
     }

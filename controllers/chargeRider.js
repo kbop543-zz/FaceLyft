@@ -17,13 +17,12 @@ if(!firebase.apps.length) {
 
 app.get('/', function(req, res) {
 
-
   // Write the new post's data simultaneously in the posts list and the user's post list.
   var amount = req.query.amount;
   var uuid = req.query.uuid;
+  console.log("SENDING MONEY TO: " + uuid);
 
   axios.get('https://projectpurple.lib.id/facechain@dev/interacRequestMoney/?UUID='+uuid+'&AMOUNT='+amount, function(res) {
-    console.log("SENDING MONEY TO: " + uuid);
     console.log(res);
   })
 })

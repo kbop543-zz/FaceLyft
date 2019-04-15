@@ -9,7 +9,7 @@ var VisualRecognitionV3 = require('watson-developer-cloud/visual-recognition/v3'
 
 var visualRecognition = new VisualRecognitionV3({
 	version: '2018-03-19',
-	iam_apikey: 'TrbyP46Gfd9cWFt78W963xq3JSXokcVMZdCP-EhT0uhg'
+	iam_apikey: 'TNAGpcRbgX6icPe6_MK2FowOTPP_Qisi47qfeRD8eF9e'
 });
 
 
@@ -22,7 +22,7 @@ app.get('/sendImage', function(req, res) {
 	var imgurl=req.query.IURL+'&token='+req.query.token;
 	//var image = req.query.image;
 	// var images_file= fs.createReadStream("./uploads/download");
-	var classifier_ids = ["DefaultCustomModel_1737231065"];
+	var classifier_ids = ["DefaultCustomModel_469039052"];
 	var threshold = 0.8;
 
 	var params = {
